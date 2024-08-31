@@ -1,29 +1,22 @@
-import { defineConfig } from 'astro/config';
-import tailwind from '@astrojs/tailwind';
-import svelte from '@astrojs/svelte';
-// import compressor from 'astro-compressor';
+import svelte from "@astrojs/svelte";
+import tailwind from "@astrojs/tailwind";
+import playformCompress from "@playform/compress";
+import { defineConfig } from "astro/config";
 
-import playformCompress from '@playform/compress';
-
-// https://astro.build/config
 export default defineConfig({
-  output: 'static',
-  compressHTML: false,
-  integrations: [
-    svelte(),
-    tailwind(),
-    playformCompress({
-      Image: false,
-      CSS: false,
-      HTML: {
-        'html-minifier-terser': {
-          ignoreCustomFragments: false,
-          // ignoreCustomFragments: [/<%[\s\S]*?%>/, /<\?[\s\S]\*?\?>/],
-          continueOnParseError: true,
-        },
-      },
-    }),
-    // compressor(),
-  ],
-  prefetch: true,
+	output: "static",
+	compressHTML: true,
+	integrations: [
+		svelte(),
+		tailwind(),
+		playformCompress({
+			HTML: {
+				"html-minifier-terser": {
+					ignoreCustomFragments: [],
+					// ignoreCustomFragments: [/<%[\s\S]*?%>/, /<\?[\s\S]\*?\?>/],
+				},
+			},
+		}),
+	],
+	prefetch: true,
 });
