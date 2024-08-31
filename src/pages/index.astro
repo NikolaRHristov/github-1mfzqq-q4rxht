@@ -1,0 +1,21 @@
+---
+import FaqQuestion from "../components/FaqQuestion.svelte";
+import "../assets/styles/app.css"
+
+
+let faqEntry = {question: "testing question", answer: "testing asnwesfdgl;.s,dfg;l',ksd[;plog ,ksdl;p[ogf klsdp;[lol[p;gls['pgfls['pgl[prasdfp[oaskdfpokasdpofjk aspokdpofkapsof dkpoaskfd poaksdf pokapo kapod fkapsokd fpoakdspo akdpso aposdf kpoaskd pokasdfp okasdfpo kaspdof kospadfk p", subject: "test subject"};
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Astro</title>
+	</head>
+	<body>
+		<h1>Astro</h1>
+     <FaqQuestion faqEntry={faqEntry} client:load />
+	</body>
+</html>
